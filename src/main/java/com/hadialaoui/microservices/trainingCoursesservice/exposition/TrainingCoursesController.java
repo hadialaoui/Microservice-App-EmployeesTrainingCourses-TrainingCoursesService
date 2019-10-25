@@ -31,13 +31,14 @@ public class TrainingCoursesController {
 	}
 	
 	@GetMapping(value="/{title}")
-	public TrainingCours getTrainingCoursById(@PathVariable String title){
+	public TrainingCours getTrainingCoursByTitle(@PathVariable String title){
 		environment.getProperty("local.server.port");
 		return trainingCoursesService.findCoursByTitle(title);
 	}
+	
 	@GetMapping(value="/port")
 	public String getPort(){
-		return environment.getProperty("local.server.port");
+		return "port of service training courses : "+environment.getProperty("local.server.port");
 	}
 	
 	@GetMapping(value="")
